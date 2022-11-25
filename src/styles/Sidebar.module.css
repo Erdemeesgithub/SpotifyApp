@@ -1,0 +1,11 @@
+.top {
+  background-color: #000;
+}
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon > p {
+  color: #eee;
+}
