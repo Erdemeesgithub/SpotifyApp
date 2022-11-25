@@ -1,5 +1,8 @@
 .top {
-  background-color: #000;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .icon {
   display: flex;
@@ -8,4 +11,14 @@
 }
 .icon > p {
   color: #eee;
+}
+.container {
+  background-color: #000;
+  height: 100vh;
+  width: 200px;
+}
+.bottom {
+  color: gray;
+  margin-left: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
