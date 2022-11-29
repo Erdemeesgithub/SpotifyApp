@@ -10,15 +10,21 @@
   gap: 10px;
 }
 .icon > p {
-  color: #eee;
+  color: gray;
 }
 .container {
   background-color: #000;
   height: 100vh;
-  width: 200px;
+  width: 300px;
 }
 .bottom {
   color: gray;
   margin-left: 20px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+ 
+}
+.bottom > p:hover {
+  color: #eee;
+}
+.icon > p:hover{
+  color: #eee;
 }
