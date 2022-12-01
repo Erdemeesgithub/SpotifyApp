@@ -1,14 +1,78 @@
-.container{
-    width: 100vw;
-    height: 100vh;
-    background-color: gray;
+.container {
+  width: 100vw;
+  height: 100vh;
+  /* background-image: url(../assets/QueL🐑@\ SQQ\ bias⭐️\ on\ Twitter.png); */
 }
-.top{
-    display: flex;
+.top {
+  display: flex;
+  justify-content: space-between;
 }
-.upgrade{
-    background-color: transparent;
-    color: white;
-    border-radius: 50px;
 
+.upgrade {
+  background-color: transparent;
+  color: white;
+  border-radius: 50px;
+  border: 1px solid darkgray;
+  width: 90px;
+  height: 25px;
+  margin-top: 10px;
+}
+.upgrade:hover {
+  border: 1px solid white;
+  background-color: black;
+  width: 95px;
+  height: 30px;
+  transition: 200ms;
+}
+.buttonTop {
+  display: flex;
+  gap: 20px;
+}
+.account {
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  width: 120px;
+  height: 25px;
+  margin-top: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.account:hover {
+  border: 1px solid white;
+  background-color: gray;
+  transition: 200ms;
+}
+.pic {
+  width: 260px;
+  height: 260px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.public {
+  color: #eee;
+}
+.playlistName {
+  font-size: 60px;
+  color: #eee;
+  font-weight: 900;
+}
+.picture {
+  margin-left: 20px;
+  display: flex;
+  gap: 20px;
+}
+.tag {
+  display: flex;
+}
+.footer {
+  background-color: #333030;
+  height: 100%;
+}
+.header {
+  background-color: #595151;
 }
