@@ -76,3 +76,20 @@
 .header {
   background-color: #595151;
 }
+.play{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 10px;
+}
+.vote{
+  display: flex;
+  gap: 40px;
+  margin-left: 10px;
+}
+.listName{
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
