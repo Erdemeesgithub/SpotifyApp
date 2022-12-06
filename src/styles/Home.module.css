@@ -93,3 +93,21 @@
   flex-direction: column;
   margin-left: 10px;
 }
+.allsongs{
+  display: flex;
+}
+.id{
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.hr{
+  margin-left: 10px;
+}
+.votes{
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}

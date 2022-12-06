@@ -1,10 +1,3 @@
-
-export const PlaylistTitle = ({
-    listName = "",
-  }) => {
-    return (
-
-          <p>{listName}</p>
-
-    );
-  };
+export const PlaylistTitle = ({ listName = "" }) => {
+  return <p>{listName}</p>;
+};

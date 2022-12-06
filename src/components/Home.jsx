@@ -27,20 +27,20 @@ export const Home = () => {
         console.log(err);
       });
   }, []);
-  const addPlaylist = async () => {
-    const res = await axios.post(
-      `https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists`,
-      [...data, { id: "0", songs: [], totalVote: 110, listName: "Erdemee" }]
-    );
-    console.log(res);
-  };
-  const updatePlaylist = async () => {
-    const res = await axios.put(
-      `https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists/1`,
-      { songs: [{ name: "erdem" }] }
-    );
-    console.log(res);
-  };
+  // const addPlaylist = async () => {
+  //   const res = await axios.post(
+  //     `https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists`,
+  //     [...data, { id: "0", songs: [], totalVote: 110, listName: "Erdemee" }]
+  //   );
+  //   console.log(res);
+  // };
+  // const updatePlaylist = async () => {
+  //   const res = await axios.put(
+  //     `https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists/1`,
+  //     { songs: [{ name: "erdem" }] }
+  //   );
+  //   console.log(res);
+  // };
 
   return (
     <>
@@ -94,23 +94,39 @@ export const Home = () => {
               <p>TITLE</p>
               <p>VOTES</p>
             </div>
-            <h1>{1}</h1>
-            <div className={styles.id}>
-              {data && 
-              data.map}
-            </div>
-            <div className={styles.listName}>
-              {data &&
-                data.map((playlist, index) => (
-                  <PlaylistTitle key={index} listName={playlist.listName} />
+            <hr className={styles.hr}></hr>
+            <div className={styles.allsongs}>
+              <div className={styles.id}>
+                <p>{1}</p>
+                <p>{2}</p>
+                <p>{3}</p>
+                <p>{4}</p>
+                <p>{5}</p>
+              </div>
+              <div>
+                {data && data.map((img, index)=> (
+                  <img key={index} src={img.image}></img>
                 ))}
-            </div>
-            <button
+              </div>
+              <div className={styles.listName}>
+                {data &&
+                  data.map((playlist, index) => (
+                    <PlaylistTitle key={index} listName={playlist.listName} />
+                  ))}
+              </div>
+              <div className={styles.votes}>
+                {data && 
+                data.map((vote, index) => (
+                  <p key={index}>{vote.totalVote}</p>
+                ))}
+              </div>
+              {/* <button
               onClick={addPlaylist}
               style={{ background: "#FFFFFF", borderRadius: "40px" }}
             >
               Update Playlist
-            </button>
+            </button> */}
+            </div>
           </div>
         </div>
       </div>
