@@ -1,3 +1,3 @@
-export * from "./Home"
+export * from "./Playlist"
 export * from "./Sidebar"
-export * from "./Main"
+export * from "./Home"

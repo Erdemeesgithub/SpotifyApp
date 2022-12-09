@@ -5,6 +5,7 @@ import { FiSearch } from "react-icons/fi";
 import { BiLibrary } from "react-icons/bi";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { BiHeartSquare } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
   return (
@@ -18,7 +19,9 @@ export const Sidebar = () => {
             <AiFillHome
               style={{ color: "white", width: 30, height: 30 }}
             ></AiFillHome>
-            <p>Home</p>
+            <Link key={"Home"} to={"Home"} className={styles.link}>
+              {"Home"} 
+            </Link>
           </div>
           <div className={styles.icon}>
             <FiSearch
@@ -51,7 +54,9 @@ export const Sidebar = () => {
       </div>
       <hr />
       <div className={styles.bottom}>
-        <p>My Playlist #1</p>
+        <Link key={"Playlist"} to={"Playlist"} className={styles.link}>
+          {"Playlist"}
+        </Link>
         <p>My Playlist #2</p>
         <p>My Playlist #3</p>
         <p>My Playlist #4</p>

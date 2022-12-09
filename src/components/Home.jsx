@@ -1,14 +1,27 @@
-import styles from "./../styles/Home.module.css";
+import styles from "../styles/Main.module.css";
 import { AiFillLeftCircle } from "react-icons/ai";
 import { AiFillRightCircle } from "react-icons/ai";
-import pic from "../assets/9d5bd05956d175dc3e4ff993e2bface9.jpeg";
+import img1 from "../assets/1.jpeg";
+import img2 from "../assets/2.jpeg";
+import img3 from "../assets/3.jpeg";
+import img4 from "../assets/4.jpeg";
+import img5 from "../assets/5.jpeg";
+import img6 from "../assets/6.jpeg";
+import img7 from "../assets/7.jpeg";
+import img8 from "../assets/8.png";
+import img9 from "../assets/9.jpg";
+import img10 from "../assets/10.jpeg";
+import img11 from "../assets/11.jpg";
+import img12 from "../assets/12.jpg";
+import img13 from "../assets/13.jpg";
+import img14 from "../assets/14.jpg";
+import img15 from "../assets/15.jpg";
+import img16 from "../assets/16.jpg";
+import img17 from "../assets/17.jpg";
+import img18 from "../assets/18.jpg";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { AiFillPlayCircle } from "react-icons/ai";
-import { PlaylistTitle } from "./PlaylistTitle";
-import { BiHeart } from "react-icons/bi";
-import { MdDownloadForOffline } from "react-icons/md";
-import { BsThreeDots } from "react-icons/bs";
 
 const baseUrl =
   "https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists";
@@ -27,105 +40,128 @@ export const Home = () => {
         console.log(err);
       });
   }, []);
-  // const addPlaylist = async () => {
-  //   const res = await axios.post(
-  //     `https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists`,
-  //     [...data, { id: "0", songs: [], totalVote: 110, listName: "Erdemee" }]
-  //   );
-  //   console.log(res);
-  // };
-  // const updatePlaylist = async () => {
-  //   const res = await axios.put(
-  //     `https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists/1`,
-  //     { songs: [{ name: "erdem" }] }
-  //   );
-  //   console.log(res);
-  // };
 
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <div className={styles.top}>
-            <div>
-              <AiFillLeftCircle
-                style={{ width: 30, height: 30 }}
-              ></AiFillLeftCircle>
-              <AiFillRightCircle
-                style={{ width: 30, height: 30 }}
-              ></AiFillRightCircle>
-            </div>
-            <div className={styles.buttonTop}>
-              <button className={styles.upgrade}>Upgrade</button>
-              <p className={styles.account}>Your account</p>
-            </div>
-          </div>
-          <div className={styles.picture}>
-            <img src={pic} className={styles.pic}></img>
-            <div>
-              <p className={styles.public}>Public playlist</p>
-              <p className={styles.playlistName}>
-                We have the same music taste.
-              </p>
-              <div className={styles.tag}>
-                <p style={{ color: "#eee" }}>Mayonnaise.</p>
-                <p style={{ color: "#eee" }}>• 20 Songs,</p>
-                <p style={{ color: "gray" }}>1 hr 30 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.footer}>
-          <div className={styles.play}>
-            <AiFillPlayCircle
-              style={{ width: 50, height: 50, color: "#1ed760" }}
-            ></AiFillPlayCircle>
-            <BiHeart style={{ width: 30, height: 30, color: "gray" }}></BiHeart>
-            <MdDownloadForOffline
-              style={{ width: 30, height: 30, color: "gray" }}
-            ></MdDownloadForOffline>
-            <BsThreeDots
-              style={{ width: 30, height: 30, color: "gray" }}
-            ></BsThreeDots>
-          </div>
-          <div className={styles.songs}>
-            <div className={styles.vote}>
-              <p>#</p>
-              <p>TITLE</p>
-              <p>VOTES</p>
-            </div>
-            <hr className={styles.hr}></hr>
-            <div className={styles.allsongs}>
-              <div className={styles.id}>
-                <p>{1}</p>
-                <p>{2}</p>
-                <p>{3}</p>
-                <p>{4}</p>
-                <p>{5}</p>
-              </div>
+        <div className={styles.cont}>
+          <div className={styles.header}>
+            <div className={styles.top}>
               <div>
-                {data && data.map((img, index)=> (
-                  <img key={index} src={img.image}></img>
-                ))}
+                <AiFillLeftCircle
+                  style={{ width: 30, height: 30 }}
+                ></AiFillLeftCircle>
+                <AiFillRightCircle
+                  style={{ width: 30, height: 30 }}
+                ></AiFillRightCircle>
               </div>
-              <div className={styles.listName}>
-                {data &&
-                  data.map((playlist, index) => (
-                    <PlaylistTitle key={index} listName={playlist.listName} />
-                  ))}
+              <div className={styles.buttonTop}>
+                <button className={styles.upgrade}>Upgrade</button>
+                <p className={styles.account}>Your account</p>
               </div>
-              <div className={styles.votes}>
-                {data && 
-                data.map((vote, index) => (
-                  <p key={index}>{vote.totalVote}</p>
-                ))}
+            </div>
+          </div>
+          <div className={styles.toppart}>
+            <h2 className={styles.afternoon}>Good Afternoon</h2>
+            <div className={styles.boxes}>
+              <div className={styles.upper}>
+                <div className={styles.box}>
+                  <img src={img1} style={{ width: 80, height: 80 }}></img>
+                  <h4 style={{ color: "#eee" }}>{data && data[0].listName}</h4>
+                </div>
+                <div className={styles.box}>
+                  <img src={img2} style={{ width: 80, height: 80 }}></img>
+                  <h4 style={{ color: "#eee" }}>{data && data[1].listName}</h4>
+                </div>
+                <div className={styles.box}>
+                  <img src={img3} style={{ width: 80, height: 80 }}></img>
+                  <h4 style={{ color: "#eee" }}>{data && data[2].listName}</h4>
+                </div>
               </div>
-              {/* <button
-              onClick={addPlaylist}
-              style={{ background: "#FFFFFF", borderRadius: "40px" }}
-            >
-              Update Playlist
-            </button> */}
+              <div className={styles.bottom}>
+                <div className={styles.box}>
+                  <img src={img4} style={{ width: 80, height: 80 }}></img>
+                  <h4 style={{ color: "#eee" }}>{data && data[3].listName}</h4>
+                </div>
+                <div className={styles.box}>
+                  <img src={img5} style={{ width: 80, height: 80 }}></img>
+                  <h4 style={{ color: "#eee" }}>{data && data[4].listName}</h4>
+                </div>
+                <div className={styles.box}>
+                  <img src={img6} style={{ width: 80, height: 80 }}></img>
+                  <h4 style={{ color: "#eee" }}>{data && data[0].listName}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 className={styles.afternoon}>Jump back in</h2>
+            <div className={styles.cards}>
+              <div className={styles.card}>
+                <img src={img7} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[0].listName}</h4>
+                <h4>by {data && data[0].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img8} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[1].listName}</h4>
+                <h4>by {data && data[1].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img12} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[2].listName}</h4>
+                <h4>by {data && data[2].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img10} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[3].listName}</h4>
+                <h4>by {data && data[3].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img11} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[4].listName}</h4>
+                <h4>by {data && data[4].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img9} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[0].listName}</h4>
+                <h4>by {data && data[0].userId.name}</h4>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 className={styles.afternoon}>Recommended Radio</h2>
+            <div className={styles.cards}>
+              <div className={styles.card}>
+                <img src={img13} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[0].listName}</h4>
+                <h4>by {data && data[0].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img14} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[1].listName}</h4>
+                <h4>by {data && data[1].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img15} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[2].listName}</h4>
+                <h4>by {data && data[2].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img16} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[3].listName}</h4>
+                <h4>by {data && data[3].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img17} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[4].listName}</h4>
+                <h4>by {data && data[4].userId.name}</h4>
+              </div>
+              <div className={styles.card}>
+                <img src={img18} style={{ width: 200, borderRadius: 5 }}></img>
+                <h4 className={styles.text1}>{data && data[0].listName}</h4>
+                <h4>by {data && data[0].userId.name}</h4>
+              </div>
             </div>
           </div>
         </div>
