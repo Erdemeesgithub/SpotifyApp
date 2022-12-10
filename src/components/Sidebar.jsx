@@ -55,7 +55,7 @@ export const Sidebar = () => {
       <hr />
       <div className={styles.bottom}>
         <Link key={"Playlist"} to={"Playlist"} className={styles.link}>
-          {"Playlist"}
+          {"We have the same music taste"}
         </Link>
         <p>My Playlist #2</p>
         <p>My Playlist #3</p>

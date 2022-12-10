@@ -32,3 +32,6 @@
   text-decoration: none;
   color: gray;
 }
+.link:hover{
+  color: #eee;
+}

@@ -1,4 +1,4 @@
-import styles from "../styles/Main.module.css";
+import styles from "../styles/Home.module.css";
 import { AiFillLeftCircle } from "react-icons/ai";
 import { AiFillRightCircle } from "react-icons/ai";
 import img1 from "../assets/1.jpeg";
@@ -22,6 +22,7 @@ import img18 from "../assets/18.jpg";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const baseUrl =
   "https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists";
@@ -67,7 +68,11 @@ export const Home = () => {
               <div className={styles.upper}>
                 <div className={styles.box}>
                   <img src={img1} style={{ width: 80, height: 80 }}></img>
-                  <h4 style={{ color: "#eee" }}>{data && data[0].listName}</h4>
+                  <Link to="/Playlist">
+                    <h4 style={{ color: "#eee" }} to={"Playlist1"}>
+                      {data && data[0].listName}
+                    </h4>
+                  </Link>
                 </div>
                 <div className={styles.box}>
                   <img src={img2} style={{ width: 80, height: 80 }}></img>

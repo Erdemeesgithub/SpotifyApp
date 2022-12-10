@@ -1,4 +1,4 @@
-import styles from "./../styles/Home.module.css";
+import styles from "./../styles/Playlist.module.css";
 import { AiFillLeftCircle } from "react-icons/ai";
 import { AiFillRightCircle } from "react-icons/ai";
 import pic from "../assets/9d5bd05956d175dc3e4ff993e2bface9.jpeg";
@@ -9,6 +9,8 @@ import { PlaylistTitle } from "./PlaylistTitle";
 import { BiHeart } from "react-icons/bi";
 import { MdDownloadForOffline } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
+import img1 from "../assets/20.jpeg";
+
 
 const baseUrl =
   "https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists";
@@ -52,7 +54,6 @@ export const Playlist = () => {
   //   });
   //   };
 
-
   return (
     <>
       <div className={styles.container}>
@@ -88,9 +89,7 @@ export const Playlist = () => {
         </div>
         <div className={styles.footer}>
           <div className={styles.play}>
-            <AiFillPlayCircle
-              style={{ width: 50, height: 50, color: "#1ed760" }}
-            ></AiFillPlayCircle>
+            <AiFillPlayCircle className={styles.play1}></AiFillPlayCircle>
             <BiHeart style={{ width: 30, height: 30, color: "gray" }}></BiHeart>
             <MdDownloadForOffline
               style={{ width: 30, height: 30, color: "gray" }}
@@ -104,33 +103,18 @@ export const Playlist = () => {
               <p>#</p>
               <p>TITLE</p>
               <p>VOTES</p>
+              <p>DATE ADDED</p>
             </div>
             <hr className={styles.hr}></hr>
             <div className={styles.allsongs}>
-              <div className={styles.id}>
-                <p>{1}</p>
-                <p>{2}</p>
-                <p>{3}</p>
-                <p>{4}</p>
-                <p>{5}</p>
-              </div>
               <div>
-                {data && data.map((img, index)=> (
-                  <img key={index} src={img.image}></img>
-                ))}
+                <p>{1}</p>
+                <img src={img1} className={styles.pics}></img>
               </div>
-              <div className={styles.listName}>
-                {data &&
-                  data.map((playlist, index) => (
-                    <PlaylistTitle key={index} listName={playlist.listName} />
-                  ))}
-              </div>
-              <div className={styles.votes}>
-                {data && 
-                data.map((vote, index) => (
-                  <p key={index}>{vote.totalVote}</p>
-                ))}
-              </div>
+              <div className={styles.id}></div>
+              <div className={styles.pics}></div>
+              <div className={styles.listName}></div>
+              <div className={styles.votes}></div>
               {/* <button
               onClick={addPlaylist}
               style={{ background: "#FFFFFF", borderRadius: "40px" }}
