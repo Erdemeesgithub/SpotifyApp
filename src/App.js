@@ -11,7 +11,6 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path="/Home" element={<Home/>}/>
           <Route path="/Playlist" element={<Playlist/>}/>
-          {/* <Route path="/Playlist" element={<Playlist/>}/> */}
         </Routes>
       </BrowserRouter>
     </div>

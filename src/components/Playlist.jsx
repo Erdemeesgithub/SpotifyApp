@@ -4,13 +4,11 @@ import { AiFillRightCircle } from "react-icons/ai";
 import pic from "../assets/9d5bd05956d175dc3e4ff993e2bface9.jpeg";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { AiFillPlayCircle } from "react-icons/ai";
-import { PlaylistTitle } from "./PlaylistTitle";
-import { BiHeart } from "react-icons/bi";
+import { AiFillPlayCircle, AiOutlineHeart } from "react-icons/ai";
+import { BiFontSize, BiHeart } from "react-icons/bi";
 import { MdDownloadForOffline } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 import img1 from "../assets/20.jpeg";
-
 
 const baseUrl =
   "https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists";
@@ -98,29 +96,58 @@ export const Playlist = () => {
               style={{ width: 30, height: 30, color: "gray" }}
             ></BsThreeDots>
           </div>
-          <div className={styles.songs}>
-            <div className={styles.vote}>
-              <p>#</p>
-              <p>TITLE</p>
-              <p>VOTES</p>
-              <p>DATE ADDED</p>
-            </div>
-            <hr className={styles.hr}></hr>
-            <div className={styles.allsongs}>
-              <div>
-                <p>{1}</p>
-                <img src={img1} className={styles.pics}></img>
+          <div style={{ marginLeft: 20 }}>
+            <div className={styles.songss}>
+              <div className={styles.vote}>
+                <p>#</p>
+                <p>TITLE</p>
+                <p>ALBUM</p>
+                <p>TIME</p>
               </div>
-              <div className={styles.id}></div>
-              <div className={styles.pics}></div>
-              <div className={styles.listName}></div>
-              <div className={styles.votes}></div>
-              {/* <button
+              <hr className={styles.hr}></hr>
+              <div className={styles.allsongs}>
+                <div className={styles.songs}>
+                  <div className={styles.son}>
+                    <p style={{ color: "#eee", marginLeft: 20 }}>{1}</p>
+                    <img src={img1} className={styles.pics}></img>
+                    <div className={styles.so}>
+                      <div style={{ color: "#eee", fontSize: 18 }}>
+                        Creepin'
+                      </div>
+                      <div className={styles.id1}>
+                        Metro Moobin, The Weeknd, 21 savage
+                      </div>
+                    </div>
+                  </div>
+                  <p className={styles.id1}>Indingo(extented)</p>
+                  <div
+                    style={{ display: "flex", gap: 20, alignItems: "center" }}
+                  >
+                    <AiOutlineHeart
+                      className={styles.icon1}
+                      style={{ color: "#eee", width: 20, height: 20 }}
+                    ></AiOutlineHeart>
+                    <p style={{ color: "rgb(168, 161, 161)" }}>1:32</p>
+                    <BsThreeDots
+                      className={styles.icon1}
+                      style={{
+                        marginRight: 20,
+                        color: "#eee",
+                        width: 20,
+                        height: 20,
+                      }}
+                    ></BsThreeDots>
+                  </div>
+                </div>
+
+                <div className={styles.votes}></div>
+                {/* <button
               onClick={addPlaylist}
               style={{ background: "#FFFFFF", borderRadius: "40px" }}
             >
               Update Playlist
             </button> */}
+              </div>
             </div>
           </div>
         </div>
