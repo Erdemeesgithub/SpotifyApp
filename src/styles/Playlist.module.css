@@ -96,6 +96,7 @@
 }
 .allsongs {
   display: flex;
+  flex-direction: column;
 }
 .id {
   color: #eee;
