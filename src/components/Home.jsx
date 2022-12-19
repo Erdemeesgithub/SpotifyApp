@@ -1,7 +1,7 @@
 import styles from "../styles/Home.module.css";
 import { AiFillLeftCircle } from "react-icons/ai";
 import { AiFillRightCircle } from "react-icons/ai";
-import img1 from "../assets/1.jpeg";
+import img1 from "../assets/9d5bd05956d175dc3e4ff993e2bface9.jpeg";
 import img2 from "../assets/2.jpeg";
 import img3 from "../assets/3.jpeg";
 import img4 from "../assets/4.jpeg";
@@ -70,7 +70,7 @@ export const Home = () => {
                   <img src={img1} style={{ width: 80, height: 80 }}></img>
                   <Link to="/Playlist">
                     <h4 style={{ color: "#eee" }} to={"Playlist1"}>
-                      {data && data[0].listName}
+                      We have the same music taste
                     </h4>
                   </Link>
                 </div>
