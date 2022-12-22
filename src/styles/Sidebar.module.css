@@ -22,8 +22,11 @@
   width: 250px;
 }
 .bottom {
+  display: flex;
+  flex-direction: column;
   color: gray;
   margin-left: 20px;
+  gap: 20px;
  
 }
 .bottom > p:hover {
