@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="Container">
       <BrowserRouter>
-        <Sidebar />
+        <Sidebar></Sidebar>
         <Routes>
           <Route index element={<Home/>}/>
           <Route path="/Home" element={<Home/>}/>
