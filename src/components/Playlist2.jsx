@@ -23,7 +23,7 @@ import img11 from "../assets/30.webp";
 import img12 from "../assets/31.webp";
 
 const baseUrl =
-  "https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists";
+  "http://localhost:8080/songs";
 
 export const Playlist2 = () => {
   const [data, setData] = useState();
@@ -39,31 +39,6 @@ export const Playlist2 = () => {
         console.log(err);
       });
   }, []);
-  // const addPlaylist = async () => {
-  //   const res = await axios.post(
-  //     `https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists`,
-  //     [...data, { id: "0", songs: [], totalVote: 110, listName: "Erdemee" }]
-  //   );
-  //   console.log(res);
-  // };
-  // const updatePlaylist = async () => {
-  //   const res = await axios.put(
-  //     `https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists/1`,
-  //     { songs: [{ name: "erdem" }] }
-  //   );
-  //   console.log(res);
-  // };
-  // const handleUpdate = async () => {
-  //   const response = await instance
-  //   .post(`products/${id}`, newProducts)
-  //   .then((res) => {
-  //   console.log("UPDATED SUCCESS", res.data);
-  //   })
-  //   .catch((error) => {
-  //   console.log(error);
-  //   });
-  //   };
-
   return (
     <>
       <div className={styles.container}>
