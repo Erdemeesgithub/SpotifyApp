@@ -21,7 +21,7 @@ export const Signup = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-      });
+      });;
   };
   return (
     <main>
