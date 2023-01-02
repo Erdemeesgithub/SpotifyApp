@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config";
+import styles from "../styles/Signup.module.css"
 
 export const Signup = () => {
   const navigate = useNavigate();
@@ -24,9 +25,9 @@ export const Signup = () => {
       });;
   };
   return (
-    <main>
+    <main className={styles.main}>
       <section>
-        <div>
+        <div className={styles.container}>
           <div>
             <h1>Focus App</h1>
             <form>

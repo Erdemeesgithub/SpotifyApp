@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config";
+import styles from "../styles/Login.module.css"
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        navigate("/");
+        navigate("/logout");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -23,9 +24,9 @@ export const Login = () => {
       });
   };
   return (
-    <main>
+    <main className={styles.main}>
       <section>
-        <div>
+        <div className={styles.container}>
           <div>
             <h1>Focus App</h1>
             <form>

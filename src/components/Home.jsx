@@ -39,7 +39,8 @@ export const Home = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
+      })
+      // .finally(() => );
   }, []);
 
   return (
@@ -57,8 +58,8 @@ export const Home = () => {
                 ></AiFillRightCircle>
               </div>
               <div className={styles.buttonTop}>
-                <button className={styles.upgrade}>Upgrade</button>
-                <p className={styles.account}>Your account</p>
+                <Link to={"/login"}className={styles.upgrade}>Log in</Link>
+                <Link to={"/signup"}className={styles.account}>Sign up</Link>
               </div>
             </div>
           </div>
