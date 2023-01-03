@@ -1,7 +1,7 @@
-import styles from "./../styles/Playlist2.module.css";
+import styles from "./../styles/Playlist.module.css";
 import { AiFillLeftCircle } from "react-icons/ai";
 import { AiFillRightCircle } from "react-icons/ai";
-import pic from "../assets/9d5bd05956d175dc3e4ff993e2bface9.jpeg";
+import pic from "../assets/32.jpeg";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { AiFillPlayCircle, AiOutlineHeart } from "react-icons/ai";
@@ -87,7 +87,7 @@ export const Playlist2 = () => {
             <div>
               <p className={styles.public}>Public playlist</p>
               <p className={styles.playlistName}>
-                We have the same music taste.
+              My insecurities, not yours.
               </p>
               <div className={styles.tag}>
                 <p style={{ color: "#eee" }}>Mayonnaise.</p>
