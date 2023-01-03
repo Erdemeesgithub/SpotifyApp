@@ -15,7 +15,7 @@ export const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        navigate("/logout");
+        navigate("/home");
       })
       .catch((error) => {
         const errorCode = error.code;

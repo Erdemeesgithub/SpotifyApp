@@ -58,7 +58,7 @@ export const Signup = () => {
               </button>
             </form>
             <p>
-              Already have an account? <NavLink to="/login">Sign in</NavLink>
+              Already have an account? <NavLink to="/login">Log in</NavLink>
             </p>
           </div>
         </div>

@@ -33,24 +33,14 @@ export const Logout = () => {
       }
     });
   }, []);
-
-  const Logout = () => {
-    signOut(auth);
-    if (signOut === true) {
-      return <button>Log in</button>;
-    } else {
-      return <button>Log out</button>;
-    }
-  };
   return (
     <div className={styles.main}>
       <div className={styles.container}>
         <div>
-          Welcome to Home page
+          Are sure you want to log out?
           {user && <p>{user.email}</p>}
           <div>
             <button onClick={handleLogout}>Logout</button>
-            <button onClick={Logout}>{}</button>
           </div>
         </div>
       </div>

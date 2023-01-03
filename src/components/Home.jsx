@@ -25,7 +25,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const baseUrl =
-  "https://6375fb74b5f0e1eb85fed196.mockapi.io/api/v1/users/10/playlists";
+  "http://localhost:8080/playlists";
 
 export const Home = () => {
   const [data, setData] = useState();
@@ -58,7 +58,7 @@ export const Home = () => {
                 ></AiFillRightCircle>
               </div>
               <div className={styles.buttonTop}>
-                <Link to={"/login"}className={styles.upgrade}>Log in</Link>
+                <Link to={"/logout"}className={styles.upgrade}>Log out</Link>
                 <Link to={"/signup"}className={styles.account}>Sign up</Link>
               </div>
             </div>
@@ -77,25 +77,25 @@ export const Home = () => {
                 </div>
                 <div className={styles.box}>
                   <img src={img2} style={{ width: 80, height: 80 }}></img>
-                  <h4 style={{ color: "#eee" }}>{data && data[1].listName}</h4>
+                  <h4 style={{ color: "#eee" }}>{data && data[0].title}</h4>
                 </div>
                 <div className={styles.box}>
                   <img src={img3} style={{ width: 80, height: 80 }}></img>
-                  <h4 style={{ color: "#eee" }}>{data && data[2].listName}</h4>
+                  <h4 style={{ color: "#eee" }}>{data && data[1].title}</h4>
                 </div>
               </div>
               <div className={styles.bottom}>
                 <div className={styles.box}>
                   <img src={img4} style={{ width: 80, height: 80 }}></img>
-                  <h4 style={{ color: "#eee" }}>{data && data[3].listName}</h4>
+                  <h4 style={{ color: "#eee" }}>{data && data[2].title}</h4>
                 </div>
                 <div className={styles.box}>
                   <img src={img5} style={{ width: 80, height: 80 }}></img>
-                  <h4 style={{ color: "#eee" }}>{data && data[4].listName}</h4>
+                  <h4 style={{ color: "#eee" }}>{data && data[3].title}</h4>
                 </div>
                 <div className={styles.box}>
                   <img src={img6} style={{ width: 80, height: 80 }}></img>
-                  <h4 style={{ color: "#eee" }}>{data && data[0].listName}</h4>
+                  <h4 style={{ color: "#eee" }}>{data && data[4].title}</h4>
                 </div>
               </div>
             </div>
@@ -105,33 +105,33 @@ export const Home = () => {
             <div className={styles.cards}>
               <div className={styles.card}>
                 <img src={img7} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[0].listName}</h4>
-                <h4>by {data && data[0].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[1].title}</h4>
+                <h4>by {data && data[0].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img8} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[1].listName}</h4>
-                <h4>by {data && data[1].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[0].title}</h4>
+                <h4>by {data && data[1].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img12} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[2].listName}</h4>
-                <h4>by {data && data[2].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[2].title}</h4>
+                <h4>by {data && data[1].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img10} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[3].listName}</h4>
-                <h4>by {data && data[3].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[4].title}</h4>
+                <h4>by {data && data[1].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img11} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[4].listName}</h4>
-                <h4>by {data && data[4].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[3].title}</h4>
+                <h4>by {data && data[0].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img9} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[0].listName}</h4>
-                <h4>by {data && data[0].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[0].title}</h4>
+                <h4>by {data && data[0].creator}</h4>
               </div>
             </div>
           </div>
@@ -140,33 +140,33 @@ export const Home = () => {
             <div className={styles.cards}>
               <div className={styles.card}>
                 <img src={img13} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[0].listName}</h4>
-                <h4>by {data && data[0].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[0].title}</h4>
+                <h4>by {data && data[0].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img14} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[1].listName}</h4>
-                <h4>by {data && data[1].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[1].title}</h4>
+                <h4>by {data && data[1].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img15} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[2].listName}</h4>
-                <h4>by {data && data[2].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[2].title}</h4>
+                <h4>by {data && data[1].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img16} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[3].listName}</h4>
-                <h4>by {data && data[3].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[3].title}</h4>
+                <h4>by {data && data[1].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img17} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[4].listName}</h4>
-                <h4>by {data && data[4].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[1].title}</h4>
+                <h4>by {data && data[1].creator}</h4>
               </div>
               <div className={styles.card}>
                 <img src={img18} style={{ width: 200, borderRadius: 5 }}></img>
-                <h4 className={styles.text1}>{data && data[0].listName}</h4>
-                <h4>by {data && data[0].userId.name}</h4>
+                <h4 className={styles.text1}>{data && data[0].title}</h4>
+                <h4>by {data && data[1].creator}</h4>
               </div>
             </div>
           </div>
