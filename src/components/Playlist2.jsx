@@ -7,7 +7,7 @@ import axios from "axios";
 import { AiFillPlayCircle, AiOutlineHeart } from "react-icons/ai";
 import { BiHeart, BiTime } from "react-icons/bi";
 import { MdDownloadForOffline } from "react-icons/md";
-import { BsThreeDots, BsFillPlayFill } from "react-icons/bs";
+import { BsThreeDots } from "react-icons/bs";
 import { MdExplicit } from "react-icons/md";
 import img1 from "../assets/20.jpeg";
 import img2 from "../assets/21.jpeg";

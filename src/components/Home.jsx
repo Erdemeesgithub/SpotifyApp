@@ -24,7 +24,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import SpinnerW from "./Spinner";
 
-const baseUrl = "http://localhost:8080/playlists";
+const baseUrl = "http://localhost:1111/playlists";
 
 export const Home = () => {
   const [data, setData] = useState();
