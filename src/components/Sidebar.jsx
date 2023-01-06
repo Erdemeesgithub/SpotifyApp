@@ -33,7 +33,7 @@ export const Sidebar = () => {
             <BiLibrary
               style={{ color: "white", width: 30, height: 30 }}
             ></BiLibrary>
-            <p>Your library</p>
+            <Link to={"Library"}>Your Library</Link>
           </div>
         </div>
         <div className={styles.create}>

@@ -16,15 +16,16 @@ export const Signup = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        // const user = {
-        //   username : email,
-        //   password : password,
-        // }
-        // axios.post(baseUrl + "users", user).then((res) => {
-        //   console.log(res);
-        // })
+        const user1 = userCredential.user;
+        console.log(user1);
+        const user = {
+          username : email,
+          password : password,
+        }
+        axios.post(baseUrl + "users", user).then((res) => {
+          localStorage.setItem("uid", res.data._id);
+          console.log(res);
+        })
         navigate("/login");
       })
       .catch((error) => {

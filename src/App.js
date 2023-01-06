@@ -1,4 +1,4 @@
-import { Playlist, Sidebar, Home, Playlist2 } from "./components";
+import { Playlist, Sidebar, Home, Playlist2, Library } from "./components";
 import "./App.css";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -24,6 +24,7 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path="/Playlist" element={<Playlist />} />
           <Route path="/Playlist2" element={<Playlist2 />} />
+          <Route path="Library" element={<Library/>} />
         </Routes>
       </BrowserRouter>
     </div>
