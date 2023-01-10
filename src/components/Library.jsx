@@ -1,18 +1,21 @@
 import axios from "axios";
+import { onAuthStateChanged } from "firebase/auth";
 import {  useEffect, useState } from "react";
+import { auth } from "../config";
 
 export const Library = () => {
   const baseurl = "http://localhost:1111/";
   const [data, setData] = useState(null);
-  const uid = localStorage.getItem("uid");
-  console.log(uid);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [user, setUser] = useState(null);
+  const [playlists, setPlaylists] = useState(null)
 
   const createPlaylist = () => {
     const playlist = {
       title: document.querySelector("#title").value,
       description: document.querySelector("#description").value,
+      user: user.uid
     };
     axios.post(baseurl + "playlists", playlist);
   };
@@ -37,9 +40,28 @@ export const Library = () => {
         console.log(err);
       });
   }, []);
+
   useEffect(() => {
-    axios.get(baseurl + `playl`)
-  }) 
+    onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      if (user) {
+        setUser(user);
+        const uid = user.uid;
+        console.log("uid", uid);
+      } else {
+        console.log("user is logget out");
+      }
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   axios.get(baseurl + `playlists?userId=${user && user.uid}`).then((res) => {
+  //   setPlaylists(res.data)
+  //   console.log(res.data);
+  //   })
+  // }) 
+ 
+
 
 
   return (
@@ -65,8 +87,8 @@ export const Library = () => {
         {data
           ? data.map((playlist, i) => (
               <>
-                <p>{data[i].title}</p>
-                {/* <button onClick={deletePlaylist}>X</button> */}
+                 <p>{data[i].title}</p> 
+                 {/* <button onClick={deletePlaylist}>X</button>  */}
               </>
             ))
           : console.log("null")}
