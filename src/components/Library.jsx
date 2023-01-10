@@ -37,6 +37,10 @@ export const Library = () => {
         console.log(err);
       });
   }, []);
+  useEffect(() => {
+    axios.get(baseurl + `playl`)
+  }) 
+
 
   return (
     <div style={{ marginLeft: 400 }}>
