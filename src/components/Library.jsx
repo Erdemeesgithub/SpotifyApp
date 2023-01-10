@@ -1,64 +1,14 @@
 import axios from "axios";
 import { useRef, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
 export const Library = () => {
-  // const nameRef = useRef();
   const baseurl = "http://localhost:1111/";
-  // const param = useParams();
-  const [data, setData] = useState({});
-  // const [songs, setSongs] = useState([]);
-  // const uid = localStorage.getItem("uid");
+  const [data, setData] = useState(null);
+  const uid = localStorage.getItem("uid");
+  console.log(uid);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [index, setIndex] = useState(null);
-  // const {user} = useAuth()
 
-  // const addPlaylist = (_, index) => {
-  //   if (nameRef.current.value) {
-  //     axios
-  //       .post(baseurl + "playlists", {
-  //         title: nameRef.current.value,
-  //       })
-  //       .then((res) => {
-  //         // axios
-  //         //   .put(baseurl + "playlist" + param.id, {
-  //         //     id: res.data._id,
-  //         //   })
-  //         //   .then((res) => {
-  //         //     console.log(res);
-  //         //   })
-  //         //   .catch((err) => {
-  //         //     console.log(err);
-  //         //   });
-  //         console.log(res);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   axios
-  //     .get(baseurl + "playlist" + param.id)
-
-  //     .then((res) => {
-  //       console.log(param.id);
-  //       setData(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     });
-  //   axios
-  //     .get(baseurl + "songs")
-  //     .then((res) => {
-  //       setSongs(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     });
-  // }, []);
   const createPlaylist = () => {
     const playlist = {
       title: document.querySelector("#title").value,
@@ -67,7 +17,17 @@ export const Library = () => {
     };
     axios.post(baseurl + "playlists", playlist);
   };
-
+  const deletePlaylist = () => {
+    axios
+      .delete(baseurl + "playlist" + uid)
+      .then((res) => {
+        console.log(uid);
+        console.log("Deleted", res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useEffect(() => {
     axios
       .get(baseurl + "playlists")
@@ -83,6 +43,7 @@ export const Library = () => {
   return (
     <div style={{ marginLeft: 400 }}>
       <input
+        placeholder="title"
         id="title"
         onChange={(e) => {
           setTitle(e.target.value);
@@ -90,6 +51,7 @@ export const Library = () => {
         value={title}
       ></input>
       <input
+        placeholder="description"
         id="description"
         onChange={(e) => {
           setDescription(e.target.value);
@@ -98,9 +60,15 @@ export const Library = () => {
       ></input>
       <button onClick={createPlaylist}>create</button>
       <div>
-        {data.map((playlist, i) => (
-          <p>{data[i].title}</p>
-        ))}
+        {data
+          ? data.map((playlist, i) => (
+              <>
+                {" "}
+                <p>{data[i].title}</p>
+                <button onClick={deletePlaylist}>X</button>
+              </>
+            ))
+          : console.log("null")}
       </div>
     </div>
   );
