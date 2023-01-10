@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useRef, useEffect, useState } from "react";
-import {useParams} from "react-router-dom"
-
+import { useParams } from "react-router-dom";
 
 export const Library = () => {
   // const nameRef = useRef();
@@ -43,7 +42,7 @@ export const Library = () => {
   // useEffect(() => {
   //   axios
   //     .get(baseurl + "playlist" + param.id)
-     
+
   //     .then((res) => {
   //       console.log(param.id);
   //       setData(res.data);
@@ -69,8 +68,6 @@ export const Library = () => {
     axios.post(baseurl + "playlists", playlist);
   };
 
-
-
   useEffect(() => {
     axios
       .get(baseurl + "playlists")
@@ -84,30 +81,27 @@ export const Library = () => {
   }, []);
 
   return (
-    <div style={{marginLeft: 400}}>
-    <input
-      id="title"
-      onChange={(e) => {
-        setTitle(e.target.value);
-      }}
-      value={title}
-    ></input>
-    <input
-      id="description"
-      onChange={(e) => {
-        setDescription(e.target.value);
-      }}
-      value={description}
-    ></input>
-    <button onClick={createPlaylist}>create</button>
-    <div>
-      {data.map((x, i) => {
-          return (<>
+    <div style={{ marginLeft: 400 }}>
+      <input
+        id="title"
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+        value={title}
+      ></input>
+      <input
+        id="description"
+        onChange={(e) => {
+          setDescription(e.target.value);
+        }}
+        value={description}
+      ></input>
+      <button onClick={createPlaylist}>create</button>
+      <div>
+        {data.map((playlist, i) => (
           <p>{data[i].title}</p>
-          </>)
-        })
-      }
+        ))}
+      </div>
     </div>
-  </div>
   );
 };
