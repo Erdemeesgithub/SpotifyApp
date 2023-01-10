@@ -3,13 +3,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config";
 import styles from "../styles/Login.module.css";
-import axios from "axios";
 
 export const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const baseurl = "http://localhost:1111/"
 
   const onLogin = (e) => {
     e.preventDefault();
@@ -17,8 +15,7 @@ export const Login = () => {
       .then((userCredential) => {
         const user1 = userCredential.user;
         console.log(user1);
-          navigate("/home");
-        
+        navigate("/home");
       })
       .catch((error) => {
         const errorCode = error.code;

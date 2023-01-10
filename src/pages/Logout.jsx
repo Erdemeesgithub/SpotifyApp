@@ -33,6 +33,7 @@ export const Logout = () => {
       }
     });
   }, []);
+
   return (
     <div className={styles.main}>
       <div className={styles.container}>

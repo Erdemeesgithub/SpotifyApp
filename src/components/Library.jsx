@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRef, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
 export const Library = () => {
   const baseurl = "http://localhost:1111/";
@@ -13,21 +13,19 @@ export const Library = () => {
     const playlist = {
       title: document.querySelector("#title").value,
       description: document.querySelector("#description").value,
-      // createdBy: uid,
     };
     axios.post(baseurl + "playlists", playlist);
   };
-  const deletePlaylist = () => {
-    axios
-      .delete(baseurl + "playlist" + uid)
-      .then((res) => {
-        console.log(uid);
-        console.log("Deleted", res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const deletePlaylist = () => {
+  //   axios
+  //     .delete(baseurl + "playlist")
+  //     .then((res) => {
+  //       console.log("Deleted", res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   useEffect(() => {
     axios
       .get(baseurl + "playlists")
@@ -63,9 +61,8 @@ export const Library = () => {
         {data
           ? data.map((playlist, i) => (
               <>
-                {" "}
                 <p>{data[i].title}</p>
-                <button onClick={deletePlaylist}>X</button>
+                {/* <button onClick={deletePlaylist}>X</button> */}
               </>
             ))
           : console.log("null")}
