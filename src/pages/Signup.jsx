@@ -39,7 +39,7 @@ export const Signup = () => {
       <section>
         <div className={styles.container}>
           <div>
-            <h1>Focus App</h1>
+            <h1 style={{color: "pink"}}>Focus App</h1>
             <form>
               <div>
                 <label htmlFor="email-address">Email address</label>

@@ -9,45 +9,34 @@ export const Library = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [user, setUser] = useState(null);
-  const [playlistId, setPlaylistId] = useState(null)
+  const [playlist, setPlaylist] = useState(null)
 
   
-  useEffect(() => {
+ useEffect(() => {
     axios
       .get(baseurl + "playlists")
       .then((res) => {
         setData(res.data);
-        console.log(res.data);
-        // const {id} = res.title
-        // console.log(id);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     console.log(user);
-  //     if (user) {
-  //       setUser(user);
-  //       const uid = user.uid;
-  //       console.log("uid", uid);
-  //     } else {
-  //       console.log("user is logget out");
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      if (user) {
+        setUser(user);
+        const uid = user.uid;
+        console.log("uid", uid);
+      } else {
+        console.log("user is logget out");
+      }
+    });
+  }, []);
+  
 
-  // useEffect(() => {
-  //   axios.get(baseurl + "users")
-  //   .then((res)=> {
-  //     console.log(res);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-  // }, [])
  
   const createPlaylist = () => {
     const playlist = {
@@ -57,16 +46,16 @@ export const Library = () => {
     };
     axios.post(baseurl + "playlists", playlist);
   };
-  const deletePlaylist = () => {
-    axios
-      .delete(baseurl + "playlist/" )
-      .then((res) => {
-        console.log("Deleted", res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const deletePlaylist = () => {
+  //   axios
+  //     .delete(baseurl + "playlist/" )
+  //     .then((res) => {
+  //       console.log("Deleted", res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
 
   return (
@@ -93,7 +82,7 @@ export const Library = () => {
           ? data.map((playlist, i) => (
               <>
                  <p>{data[i].title}</p> 
-                 <button onClick={deletePlaylist}>X</button> 
+                 {/* <button onClick={deletePlaylist}>X</button>  */}
               </>
             ))
           : console.log("null")}

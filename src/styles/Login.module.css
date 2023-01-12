@@ -1,7 +1,11 @@
 .main {
-    margin-left: 300px;
+    margin-left: 200px;
     width: 100vw;
     height: 100vh;
+    background-image: url(../assets/3.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
   .container {
     display: flex;
