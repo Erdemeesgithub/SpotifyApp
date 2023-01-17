@@ -1,7 +1,8 @@
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../config";
+import SpinnerL from "./Spinner1";
 
 export const Library = () => {
   const baseurl = "http://localhost:1111/";
@@ -9,19 +10,7 @@ export const Library = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [user, setUser] = useState(null);
-  const [playlist, setPlaylist] = useState(null)
-
-  
- useEffect(() => {
-    axios
-      .get(baseurl + "playlists")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const [playlist, setPlaylist] = useState(null);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -35,14 +24,25 @@ export const Library = () => {
       }
     });
   }, []);
-  
 
- 
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(baseurl + "playlists?fbId=" + user.uid)
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [user]);
+
   const createPlaylist = () => {
     const playlist = {
       title: document.querySelector("#title").value,
       description: document.querySelector("#description").value,
-      user: user.uid
+      fbId: user.uid,
     };
     axios.post(baseurl + "playlists", playlist);
   };
@@ -56,7 +56,9 @@ export const Library = () => {
   //       console.log(err);
   //     });
   // };
-
+  if (!data) {
+    return <SpinnerL />;
+  }
 
   return (
     <div style={{ marginLeft: 400 }}>
@@ -81,8 +83,8 @@ export const Library = () => {
         {data
           ? data.map((playlist, i) => (
               <>
-                 <p>{data[i].title}</p> 
-                 {/* <button onClick={deletePlaylist}>X</button>  */}
+                <p>{data[i].title}</p>
+                {/* <button onClick={deletePlaylist}>X</button>  */}
               </>
             ))
           : console.log("null")}

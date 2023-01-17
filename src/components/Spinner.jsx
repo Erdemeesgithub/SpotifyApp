@@ -1,4 +1,4 @@
-// import Spinner from "react-bootstrap/Spinner";
+
 
 const SpinnerW = () => {
   return (
@@ -13,9 +13,6 @@ const SpinnerW = () => {
         backgroundColor: "rgb(32, 34, 34)",
       }}
     >
-      {/* <Spinner animation="border">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner> */}
 
       <div
         style={{
