@@ -1,8 +1,9 @@
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { auth } from "../config";
 import SpinnerL from "./Spinner1";
+import { useParams } from "react-router-dom";
 
 export const Library = () => {
   const baseurl = "http://localhost:1111/";
@@ -11,6 +12,7 @@ export const Library = () => {
   const [description, setDescription] = useState("");
   const [user, setUser] = useState(null);
   const [playlist, setPlaylist] = useState(null);
+  const param = useParams();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -30,7 +32,7 @@ export const Library = () => {
       axios
         .get(baseurl + "playlists?fbId=" + user.uid)
         .then((res) => {
-          setData(res.data);
+          setData(res.data.data);
         })
         .catch((err) => {
           console.log(err);
@@ -46,16 +48,16 @@ export const Library = () => {
     };
     axios.post(baseurl + "playlists", playlist);
   };
-  // const deletePlaylist = () => {
-  //   axios
-  //     .delete(baseurl + "playlist/" )
-  //     .then((res) => {
-  //       console.log("Deleted", res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const deletePlaylist = () => {
+    axios
+      .delete(baseurl + "playlists?fbId=" + user.uid + "/" + param.id)
+      .then((res) => {
+        console.log("Deleted", res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   if (!data) {
     return <SpinnerL />;
   }
@@ -80,14 +82,14 @@ export const Library = () => {
       ></input>
       <button onClick={createPlaylist}>create</button>
       <div>
-        {data
-          ? data.map((playlist, i) => (
-              <>
-                <p>{data[i].title}</p>
-                {/* <button onClick={deletePlaylist}>X</button>  */}
-              </>
-            ))
-          : console.log("null")}
+        {data &&
+          data.map((playlist, i) => (
+            <>
+              <p>{playlist.title}</p>
+              <button onClick={deletePlaylist}>X</button>
+            
+            </>
+          ))}
       </div>
     </div>
   );

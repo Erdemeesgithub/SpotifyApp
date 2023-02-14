@@ -33,8 +33,8 @@ export const Home = () => {
     axios
       .get(baseUrl)
       .then((res) => {
-        setData(res.data);
-        console.log(res.data);
+        setData(res.data.data);
+        console.log(res.data.data);
       })
       .catch((err) => {
         console.log(err);
