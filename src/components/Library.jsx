@@ -1,9 +1,9 @@
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../config";
 import SpinnerL from "./Spinner1";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const Library = () => {
   const baseurl = "http://localhost:1111/";
@@ -11,7 +11,6 @@ export const Library = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [user, setUser] = useState(null);
-  const [playlist, setPlaylist] = useState(null);
   const param = useParams();
 
   useEffect(() => {
@@ -85,9 +84,11 @@ export const Library = () => {
         {data &&
           data.map((playlist, i) => (
             <>
-              <p>{playlist.title}</p>
+              <Link to={`/insidePlaylist/` + playlist._id}>
+                <p>{playlist.title}</p>
+              </Link>
+
               <button onClick={deletePlaylist}>X</button>
-            
             </>
           ))}
       </div>
